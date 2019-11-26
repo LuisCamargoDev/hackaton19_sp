@@ -7,14 +7,23 @@ const SchoolSchema = new Schema({
     cursos: [{
       name: String,
       description: String,
-      limitSubscriptionDate: Date,
-      startDate: Date,
+      limitSubscriptionDate: {
+        type: Date,
+        require: true,
+      },
+      startDate: {
+        type: Date,
+        require: true,
+      },
       finishDate: Date,
-      coach: {
+      limitStudents: {
+        type: Number,
+        require: true,
+      },
+      coach: {  
         type: Schema.Types.ObjectId,
         ref: 'Coach'
       },
-      limitStudents: Number,
       students: [{
         type: Schema.Types.ObjectId,
         ref: 'Student'
