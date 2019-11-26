@@ -1,5 +1,4 @@
 const schoolService = require("../../core/services/school.services");
-
 class schoolController {
   insert({ body, header }, res) {
     schoolService
@@ -11,3 +10,5 @@ class schoolController {
       });
   }
 }
+
+module.exports = new schoolController();
