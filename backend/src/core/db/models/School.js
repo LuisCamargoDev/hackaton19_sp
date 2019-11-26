@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const { Schema, model }= require('mongoose');
+const repo = require('../repo');
 
-const SchoolSchema = new mongoose.Schema({
+const SchoolSchema = new Schema({
     name: String,
     endereco: String,
     cursos: [{
@@ -9,13 +10,18 @@ const SchoolSchema = new mongoose.Schema({
       limitSubscriptionDate: Date,
       startDate: Date,
       finishDate: Date,
-      coach: String,
+      coach: {
+        type: Schema.Types.ObjectId,
+        ref: 'Coach'
+      },
       limitStudents: Number,
       students: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Student'
       }]
     }],    
 });
 
-module.exports = mongoose.model('School', SchoolSchema);
+const Model = model('School', SchoolSchema);
+
+module.exports = repo(Model);
