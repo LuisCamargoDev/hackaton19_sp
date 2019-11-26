@@ -11,12 +11,12 @@ const SchoolSchema = new Schema({
       startDate: Date,
       finishDate: Date,
       coach: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Coach'
       },
       limitStudents: Number,
       students: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Student'
       }]
     }],    
