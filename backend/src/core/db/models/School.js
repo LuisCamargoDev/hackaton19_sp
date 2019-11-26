@@ -1,7 +1,7 @@
 const { Schema, model }= require('mongoose');
 const repo = require('../repo');
 
-const SchoolSchema = new Schema({
+const schoolSchema = new Schema({
     name: String,
     endereco: String,
     cursos: [{
@@ -32,6 +32,6 @@ const SchoolSchema = new Schema({
     }],    
 });
 
-const Model = model('School', SchoolSchema);
+const Model = model('School', schoolSchema);
 
 module.exports = repo(Model);
