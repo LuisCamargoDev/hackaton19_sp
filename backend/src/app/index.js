@@ -15,9 +15,8 @@ class AppController {
   }
 
   routes() {
-    this.app.use("", "");
+    this.app.use("school", routes.schoolRoutes);
   }
-
 }
 
 module.exports = new AppController().app;
