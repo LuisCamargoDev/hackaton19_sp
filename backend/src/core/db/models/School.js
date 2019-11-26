@@ -7,6 +7,7 @@ const SchoolSchema = new Schema({
     cursos: [{
       name: String,
       description: String,
+      room: String,
       limitSubscriptionDate: {
         type: Date,
         require: true,
