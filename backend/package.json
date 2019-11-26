@@ -4,13 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start":"nodemon src"
+    "test": "mocha 'test/**/*.test.js'",
+    "start": "nodemon src"
+  },
+  "directories": {
+    "test": "mocha"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "mongoose": "^5.7.12"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
     "nodemon": "^2.0.1"
   }
 }
