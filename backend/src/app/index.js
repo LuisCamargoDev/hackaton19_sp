@@ -1,6 +1,7 @@
 const express = require("express");
 const routes = require("./routes");
 const cors = require("cors");
+require("dotenv/config");
 
 class AppController {
   constructor() {
@@ -19,6 +20,7 @@ class AppController {
     this.app.use("/coach", routes.coachRoutes);
     this.app.use("/student", routes.studentRoutes);
     this.app.use("/placesnear", routes.placesnearRoutes);
+    this.app.use("/teachcourse", routes.teachcourse);
   }
 }
 

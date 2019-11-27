@@ -12,10 +12,7 @@ const courseSchema = mongoose.Schema({
   period: String,
   startDate: Date,
   finishDate: Date,
-  limitStudents: {
-    type: Number,
-    required: true,
-  },
+  limitStudents: String,
   coach: {  
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Coach'
@@ -51,7 +48,10 @@ const schoolSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    latlong: String,
+    address_latlong: {
+      type: String,
+      required: true,
+    },
     courses: [courseSchema],    
 });
 

@@ -21,6 +21,7 @@ class PlacesNearbyController {
 
     const schools = await schoolService.list({
       address_city: coach.address_city,
+      coach: null
     })
 
     return res.json(schools);
