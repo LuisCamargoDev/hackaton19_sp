@@ -17,7 +17,7 @@ function CoursePage({ navigation }) {
     const course = navigation.getParam("class");
 
     try {
-      await api.post(`/teachcourse/5dde71509d278259e08be95f`, 
+      await api.post(`/teachcourse/5dde761dd4b6980017531e8e`, 
       {
         name,
         description,
@@ -26,7 +26,7 @@ function CoursePage({ navigation }) {
       },
       { 
         headers: {
-          coachid: "5dde68b37267870100e5f289"
+          coachid: "5dde7612d4b6980017531e8c"
         }
       });
 
