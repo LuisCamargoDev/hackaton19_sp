@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const repo = require('../repo');
 
 const schoolSchema = new mongoose.Schema({
@@ -28,6 +27,7 @@ const schoolSchema = new mongoose.Schema({
       name: String,
       description: String,
       room: String,
+      period: String,
       limitSubscriptionDate: {
         type: Date,
         required: true,
