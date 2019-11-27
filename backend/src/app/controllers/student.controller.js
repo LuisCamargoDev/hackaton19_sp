@@ -10,11 +10,11 @@ class studentController {
       });
   }
 
-  show(req, res) {
+  show(_, res) {
     studentService
       .list()
       .then(resul => res.json(resul))
-      .catch(err => {
+      .catch(_ => {
         res.sendStatus(500).json({ error: "error on list" });
       });
   }
@@ -23,9 +23,9 @@ class studentController {
     studentService
       .session(login, password)
       .then(resp =>
-        resp.message ? res.statusCode(401).json(resp) : res.json(resp)
+        resp.message ? res.sendStatus(401).json(resp) : res.json(resp)
       )
-      .catch(_ => res.statusCode(500).json({ message: "error when login" }));
+      .catch(_ => res.sendStatus(500).json({ message: "error when login" }));
   }
 }
 

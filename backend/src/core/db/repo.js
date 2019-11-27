@@ -67,17 +67,18 @@ class repo {
   }
 
   session(login, password, entity) {
+    console.log(login, password, entity);
     return this.model.findOne({ login }).then(res =>
       !res
         ? { message: "login not found" }
-        : comparePassword(password, res.password).then(matchPassword =>
-            !matchPassword
+        : comparePassword(password, res.password).then(matchPassword => {
+            console.log("match", matchPassword, process.env.JWT_KEY);
+            return !matchPassword
               ? { message: "Incorrect password" }
               : {
-                  res,
                   token: jwt.sign({ id: res._id, entity }, process.env.JWT_KEY)
-                }
-          )
+                };
+          })
     );
   }
 }

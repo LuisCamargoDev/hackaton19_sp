@@ -4,7 +4,7 @@ module.exports = async ({ body }, res, next) => {
   const schema = yup.object().shape({
     name: yup.string().min(3).required(),
     description: yup.string().min(3).required(),
-    endDate: yup.date().required(),
+    finishDate: yup.date().required(),
   });
 
   if (!(await schema.isValid(body))) {

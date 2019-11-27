@@ -43,6 +43,7 @@ class CoachService {
 
   session(login, password) {
     try {
+      console.log("session coach");
       return Coach.session(login, password, "coach");
     } catch (ex) {
       throw ex;

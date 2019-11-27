@@ -10,5 +10,5 @@ router.post("/", schoolInsertMiddleware, schoolController.insert);
 router.get("/", schoolController.show);
 
 router.post("/courses", courseInsertMiddleware, courseController.insert);
-
+router.post("/session", schoolController.session);
 module.exports = router;

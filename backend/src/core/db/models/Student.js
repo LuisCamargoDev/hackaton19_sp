@@ -19,7 +19,7 @@ const studentSchema = new Schema({
   phone: String
 });
 
-schoolSchema.pre("save", function(next) {
+studentSchema.pre("save", function(next) {
   if (!this.isModified("password")) return next();
 
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {

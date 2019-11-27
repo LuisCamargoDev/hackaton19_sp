@@ -3,7 +3,7 @@ const viacepService = require("../services/viacep");
 const gmaps = require("../services/gmaps");
 
 class schoolController {
-  async insert({ body, header }, res) {
+  async insert({ body }, res) {
     const viacepResult = await viacepService(body.address_postalcode);
     const { localidade, logradouro } = JSON.parse(viacepResult);
 
@@ -13,7 +13,8 @@ class schoolController {
       encodeURIComponent(`${logradouro},${localidade},${body.address_number}`)
     );
     const { results } = result;
-    console.error(result);
+
+    console.log(results);
 
     if (!results.length) {
       return res.status(500).json({
@@ -37,9 +38,10 @@ class schoolController {
       });
   }
 
-  show({ query }, res) {
+  show({ params }, res) {
+    const { id } = params;
     schoolService
-      .findById(query.id)
+      .findById(id)
       .then(resul => res.json(resul.courses))
       .catch(_ => res.sendStatus(500).json({ error: "school not found" }));
   }
@@ -48,9 +50,9 @@ class schoolController {
     schoolService
       .session(login, password)
       .then(resp =>
-        resp.message ? res.statusCode(401).json(resp) : res.json(resp)
+        resp.message ? res.sendStatus(401).json(resp) : res.json(resp)
       )
-      .catch(_ => res.statusCode(500).json({ message: "error when login" }));
+      .catch(_ => res.sendStatus(500).json({ message: "error when login" }));
   }
 }
 

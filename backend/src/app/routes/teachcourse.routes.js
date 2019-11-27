@@ -11,5 +11,6 @@ router.post(
   techcoursesInsertMiddleware,
   techcourseController.insert
 );
+router.get("/", techcourseController.index);
 
 module.exports = router;

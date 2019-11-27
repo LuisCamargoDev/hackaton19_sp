@@ -2,12 +2,12 @@ const coachService = require("../../core/services/coach.services");
 const schoolService = require("../../core/services/school.services");
 
 class PlacesNearbyController {
-  async index({ headers }, res) {
-    const { coachid } = headers;
-
+  async index({ body }, res) {
+    const { entityId: coachid } = body;
+    console.log(body);
     if (!coachid) {
       return res.status(401).json({
-        error: 'Coach not informed',
+        error: "Coach not informed"
       });
     }
 
@@ -15,13 +15,13 @@ class PlacesNearbyController {
 
     if (!coach) {
       return res.status(401).json({
-        error: 'Coach not found'
-      })
+        error: "Coach not found"
+      });
     }
 
     const schools = await schoolService.list({
-      address_city: coach.address_city,
-    })
+      address_city: coach.address_city
+    });
 
     return res.json(schools);
   }

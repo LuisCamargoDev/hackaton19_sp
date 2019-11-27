@@ -1,4 +1,5 @@
 const Coach = require("../../core/db/models/Coach");
+const coachService = require("../../core/services/coach.services");
 const viacepService = require("../services/viacep");
 
 class CoachController {
@@ -15,11 +16,12 @@ class CoachController {
 
   async session({ body }, res) {
     const { login, password } = body;
-    Coach.session(login, password)
+    coachService
+      .session(login, password)
       .then(resp =>
-        resp.message ? res.statusCode(401).json(resp) : res.json(resp)
+        resp.message ? res.sendStatus(401).json(resp) : res.json(resp)
       )
-      .catch(_ => res.statusCode(500).json({ message: "error when login" }));
+      .catch(_ => res.sendStatus(500).json({ message: "error when login" }));
   }
 }
 
