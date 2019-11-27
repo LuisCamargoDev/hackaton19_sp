@@ -1,7 +1,16 @@
-const { Schema, model }= require('mongoose');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const repo = require('../repo');
 
-const schoolSchema = new Schema({
+const schoolSchema = new mongoose.Schema({
+    login: {
+      type: String,
+      require:true,
+    },
+    password: {
+      type: String,
+      require: true,
+    },
     name: String,
     endereco: String,
     cursos: [{
@@ -22,16 +31,16 @@ const schoolSchema = new Schema({
         require: true,
       },
       coach: {  
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Coach'
       },
       students: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Student'
       }]
     }],    
 });
 
-const Model = model('School', schoolSchema);
+const model = mongoose.model('School', schoolSchema);
 
-module.exports = repo(Model);
+module.exports = repo(model);

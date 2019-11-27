@@ -1,7 +1,6 @@
 const express = require("express");
 const routes = require("./routes");
 const cors = require("cors");
-const authMiddleware = require("../app/middlewares/validations/session");
 
 class AppController {
   constructor() {
@@ -16,8 +15,9 @@ class AppController {
   }
 
   routes() {
-    this.app.use(authMiddleware); // incluir somente onde antes tiver autenticação
-    this.app.use("school", routes.schoolRoutes);
+    this.app.use("/school", routes.schoolRoutes);
+    this.app.use("/couch", routes.coachRoutes);
+    this.app.use("/student", routes.studentRoutes);
   }
 }
 

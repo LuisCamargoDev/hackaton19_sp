@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const options = { useNewUrlParser: true };
+const options = { useNewUrlParser: true, useUnifiedTopology: true };
 let instance = null;
 require("dotenv/config");
 
