@@ -1,10 +1,22 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const repo = require('../repo');
 
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-  name: String,
+  login: {
+    type: String,
+    require:true,
+  },
+  password: {
+    type: String,
+    require: true,
+  },
+  name: {
+    type: String,
+    require: true,
+  },
   phone: String,
 });
 

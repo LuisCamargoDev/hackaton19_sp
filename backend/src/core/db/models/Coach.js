@@ -4,7 +4,18 @@ const repo = require('../repo');
 const Schema = mongoose.Schema;
 
 const coachSchema = new Schema({
-  name: String,
+  login: {
+    type: String,
+    require:true,
+  },
+  password: {
+    type: String,
+    require: true,
+  },
+  name: {
+    type: String,
+    require: true,
+  },
   cep: String,
 });
 

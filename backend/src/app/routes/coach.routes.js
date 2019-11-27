@@ -7,3 +7,4 @@ const coachController = require("../controllers/coach.controller");
 router.post("/", coachInsertMiddleware, coachController.insert);
 
 module.exports = router;
+
