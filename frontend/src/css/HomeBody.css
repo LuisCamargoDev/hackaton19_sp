@@ -1,0 +1,111 @@
+/****************** COMPANY ******************/
+.Company{
+  margin-top: 0px;
+  height: 300px;
+}
+.Company .header h3{
+  text-align: left;
+  align-content: inline ;
+  font-size: 1.7em;
+}
+.Company .header h3 span{ 
+  color: #939393;
+}
+.Company .body{
+  margin-right:10px;
+  margin-left:8vh;
+  height: 180px;
+  width: 90%;  
+  /* background-color: green; */
+}
+
+.Company .body .imgCompany{
+  /* height: 100%; */
+  margin: 10 auto;
+  width: 100%;
+  
+  /* background-color: cyan; */
+}
+.card{
+  padding-left: 10px;
+}
+.Company .body .bodyCompany{
+  width: 100%;
+  height: 120px;
+  color: #5E5E5E;
+  /* background-color: grey; */
+}
+.Company .body .bodyCompany h4{
+  margin-top: 50px;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+}
+.Company .body .footerCompany{
+  width: 100%;
+  /* background-color: orange; */
+}
+.Company img{
+  width: 150px;
+  height: 100px;
+  margin-top: 20px;
+}
+
+/****************** PRODUCT ******************/
+.Product{
+  margin-top: 0px;
+  height: 300px;
+}
+.Product .header h3{
+  text-align: left;
+  align-content: inline ;
+  font-size: 1.7em;
+}
+.Product .header h3 span{ 
+  color: #939393;
+}
+.Product .body{
+  margin-right:10px;
+  margin-left:8vh;
+  height: 180px;
+  width: 90%;  
+}
+
+.Product .body .imgProduct{
+  /* height: 100%; */
+  width: 100%;
+  /* background-color: cyan; */
+}
+.Product .body .bodyProduct{
+  width: 100%;
+  height:100%;
+  color: #5E5E5E;
+  /* background-color: grey; */
+}
+.Product .body .bodyProduct h4{
+  align-items: center;
+  margin-top: -10px;
+  padding-top: 20px;
+  font-size: 1.0em;
+  font-weight: bold;
+  justify-content: center;
+}
+.Product .body .footerProduct{
+  width: 100%;
+  background-color: orange;
+}
+.Product img{
+  /* width: 19.66579634464752vh; */
+  /* height: 9.112375533428165vw; */
+  margin: 0px;
+  padding: 10px;
+  margin-top: -10px;
+  padding-top: -20px;
+  width: 100px;
+  height: 100px;
+}
+
+.Product .body .logoProfile{
+  margin-top: 10px;
+  margin-left: 1vh;
+}

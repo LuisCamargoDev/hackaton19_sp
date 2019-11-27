@@ -1,0 +1,23 @@
+body,
+html {
+  height: 100%;
+  margin: 0; 
+}
+
+.App {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;  
+  
+}
+.link{
+  color: #004C84;
+}
+
+.card:hover{
+  transform: scale(0.8);
+  -webkit-box-shadow: 0px 0px 38px 0px rgba(0,77,132,1);
+  -moz-box-shadow: 0px 0px 38px 0px rgba(0,77,132,1);
+  box-shadow: 0px 0px 38px 0px rgba(0,77,132,1);
+}

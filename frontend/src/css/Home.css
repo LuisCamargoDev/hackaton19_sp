@@ -1,0 +1,16 @@
+.Home{
+    width: 100%;
+  }
+.green{
+    color: #00BB0D;
+}
+
+.toggleBtn{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 1;
+  padding: 3rem;
+  
+  text-align: center;
+}

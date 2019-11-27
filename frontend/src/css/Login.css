@@ -1,0 +1,69 @@
+.Login{
+    margin-top: 20vh;
+ }
+  .loginForm{
+    width:100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    height: 100%;
+  }
+  input {
+    text-align: center;
+  }
+  input[type=email] {
+    background-color: rgb(7, 114, 14);
+    text-align: center;
+    color: white;
+  }
+  input[type=email]::placeholder {      
+    text-align: center; 
+    color: white;
+  } 
+  input[type=email]:focus{
+    background-color: #239111;
+    text-align: center;
+    color:white;
+  }
+
+  input[type=text] {
+    background-color: rgb(7, 114, 14);
+    text-align: center;
+    color: white;
+  }
+  input[type=text]::placeholder {      
+    text-align: center; 
+    color: white;
+  } 
+  input[type=text]:focus{
+    background-color: #239111;
+    text-align: center;
+    color:white;
+  }
+
+
+
+  input[type=password] {
+    background-color: rgb(7, 114, 14);                                                                           
+    color: white;
+  }
+  input[type=password]::placeholder {      
+    text-align: center; 
+    color: white;
+  } 
+  input[type=password]:focus{
+    background-color: #239111;
+    text-align: center;
+    color:white;
+  }
+  .title_g{
+    margin-bottom: 50px;
+    font-size: 5.3em;
+    color: rgb(7, 114, 14);
+    font-weight: bold;
+    text-align: center;
+  }
+  .btn-login{
+    margin-top: 20px;
+  }
+  
