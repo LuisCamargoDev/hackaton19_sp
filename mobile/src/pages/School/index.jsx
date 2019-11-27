@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, ActivityIndicator, Text, ImageBackground } from "react-native";
 import { withNavigationFocus } from "react-navigation";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import pt from "date-fns/locale/pt";
 // import { ImageBackground } from "expo";
 
@@ -68,7 +68,7 @@ function SchoolPage({ navigation }) {
                 <View>
                   <RoomSchedule>
                     {format(
-                      item.limitSubscriptionDate,
+                      parseISO(item.limitSubscriptionDate),
                       "dd 'de' MMMM 'de' yyyy",
                       { locale: pt }
                     )}
