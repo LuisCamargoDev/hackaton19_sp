@@ -15,9 +15,14 @@ export const Container = styled.KeyboardAvoidingView.attrs({
 export const Form = styled.View`
   align-self: stretch;
   margin-top: 40px;
+
+  background: #eee;
+  border-radius: 4px;
+  padding: 15px;
 `;
 
 export const FormInput = styled.TextInput`
+  padding: 0 0 15px 15px;
   margin-top: 10px;
 `;
 
@@ -27,9 +32,22 @@ export const Button = styled(RectButton)`
   align-items: center;
   justify-content: center;
   margin-top: 15px;
-  background-color: #7159c1;
+  background-color: #7159c1;  
 `;
 
 export const ButtonText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
   color: #fff;
+  text-transform: uppercase;
+`;
+
+export const Label = styled.Text`
+  font-size: 15px;
+`;
+
+export const Title = styled.Text`
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
 `;

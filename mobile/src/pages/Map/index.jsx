@@ -22,19 +22,21 @@ function MapPage({ navigation }) {
         }
       });
 
-      setSchools(
-        response.data.map(school => {
-          const [latitude, longitude] = school.address_latlong.split(",");
+      const schoolsList = response.data.map(school => {
+        const [latitude, longitude] = school.address_latlong.split(",");
 
-          return {
-            ...school,
-            coords: {
-              latitude: Number(latitude),
-              longitude: Number(longitude)
-            }
-          };
-        })
-      );
+        return {
+          ...school,
+          coords: {
+            latitude: Number(latitude),
+            longitude: Number(longitude)
+          }
+        };
+
+      })
+
+      setSchools(schoolsList);
+
     } catch (err) {}
   }
 

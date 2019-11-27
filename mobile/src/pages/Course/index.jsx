@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Text } from "react-native";
 
 import api from "../../services/api";
 
 import DateInput from "../../components/DateInput";
 
-import { Container, Button, ButtonText, Form, FormInput } from "./styled";
+import { Container, Button, ButtonText, Form, FormInput, Label, Title } from "./styled";
 
 function CoursePage({ navigation }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
+  const [startDate, setStartDate] = useState(new Date());
   const [finishDate, setFinishDate] = useState(new Date());
   const [limitSubscriptionDate, setLimitSubscriptionDate] = useState(new Date());
 
@@ -17,7 +17,7 @@ function CoursePage({ navigation }) {
     const course = navigation.getParam("class");
 
     try {
-      await api.post(`/teachcourse/5dde761dd4b6980017531e8e`, 
+      await api.post(`/teachcourse/${course._id}`, 
       {
         name,
         description,
@@ -38,25 +38,36 @@ function CoursePage({ navigation }) {
 
   return (
     <Container>
-      <Text>Informe os detalhes do curso que você gostaria de ministrar</Text>
+      <Title>Informe os detalhes do curso que você gostaria de ministrar:</Title>
 
       <Form>
+        <Label>Nome:</Label>
         <FormInput
           value={name}
-          placeholder="Nome"
           onChangeText={text => setName(text)}
-        />
-        <FormInput
-          value={description}
-          placeholder="Descriçâo"
-          onChangeText={text => setDescription(text)}
+          underlineColorAndroid
         />
 
+        <Label>Descrição:</Label>
+        <FormInput
+          value={description}
+          onChangeText={text => setDescription(text)}
+          underlineColorAndroid
+        />
+
+        <Label>Limite data de inscrição:</Label>
         <DateInput
           date={limitSubscriptionDate}
           onChange={setLimitSubscriptionDate}
         />
 
+        <Label>Data inicial:</Label>
+        <DateInput 
+          date={startDate} 
+          onChange={setStartDate} 
+        />
+
+        <Label>Data final:</Label>
         <DateInput 
           date={finishDate} 
           onChange={setFinishDate} 
