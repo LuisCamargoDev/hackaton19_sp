@@ -16,29 +16,25 @@ function MapPage({ navigation }) {
 
   async function fetchSchools() {
     try {
-      // const response = await api.get('schools')
-      const response = {
-        data: [
-          {
-            id: 1,
-            name: "Escola 1",
-            coords: {
-              latitude: -23.643688,
-              longitude: -46.640053
-            }
-          },
-          {
-            id: 2,
-            name: "Rocketseat Experience",
-            coords: {
-              latitude: -23.64474,
-              longitude: -46.63022
-            }
-          }
-        ]
-      };
+      const response = await api.get("placesnear", {
+        headers: {
+          coachId: "5dde67efd4b6980017531e89"
+        }
+      });
 
-      setSchools(response.data);
+      setSchools(
+        response.data.map(school => {
+          const [latitude, longitude] = school.address_latlong.split(",");
+
+          return {
+            ...school,
+            coords: {
+              latitude: Number(latitude),
+              longitude: Number(longitude)
+            }
+          };
+        })
+      );
     } catch (err) {}
   }
 
@@ -83,11 +79,11 @@ function MapPage({ navigation }) {
 
           {schools.map(school => (
             <Marker
-              key={school.id}
+              key={school._id}
               coordinate={school.coords}
               title={school.name}
               onCalloutPress={() =>
-                navigation.navigate("SchoolPage", { schoolId: school.id })
+                navigation.navigate("SchoolPage", { schoolId: school._id })
               }
             />
           ))}

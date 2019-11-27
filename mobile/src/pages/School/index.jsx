@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, Text, ImageBackground } from "react-native";
 import { withNavigationFocus } from "react-navigation";
+// import { ImageBackground } from "expo";
 
 import api from "../../services/api";
 
@@ -14,7 +15,9 @@ import {
   RoomCapacity,
   RoomSchedule,
   Row,
-  Icon
+  Icon,
+  RoomsHeader,
+  RoomsTitle
 } from "./styled";
 
 function SchoolPage({ navigation, isFocused }) {
@@ -52,7 +55,7 @@ function SchoolPage({ navigation, isFocused }) {
       setSchool(response.data);
     } catch (err) {
     } finally {
-      setTimeout(() => setLoading(false), 500);
+      setLoading(false);
     }
   }
 
@@ -68,6 +71,18 @@ function SchoolPage({ navigation, isFocused }) {
         <ActivityIndicator />
       ) : (
         <View>
+          <ImageBackground
+            source={{
+              uri:
+                "https://images4.opb.org/c_limit%2Cg_south%2Ch_1000%2Cq_90%2Cw_640/20190805_franklin_high_school_em-2.jpg"
+            }}
+            style={{
+              width: "100%",
+              height: 150,
+              opacity: 0.5,
+              justifyContent: "flex-end"
+            }}
+          ></ImageBackground>
           <SchoolHeader>
             <Row>
               <Icon name="md-business" size={32} color="gray" />
@@ -81,6 +96,11 @@ function SchoolPage({ navigation, isFocused }) {
           <Rooms
             data={school.rooms}
             keyExtractor={item => String(item.id)}
+            ListHeaderComponent={
+              <RoomsHeader>
+                <RoomsTitle>Salas disponíveis</RoomsTitle>
+              </RoomsHeader>
+            }
             renderItem={({ item }) => (
               <RoomItem
                 onPress={() =>
@@ -89,8 +109,14 @@ function SchoolPage({ navigation, isFocused }) {
                 disabled={!item.available}
                 available={item.available}
               >
-                <RoomCapacity>Vagas: {item.capacity}</RoomCapacity>
-                <RoomSchedule>Dias: {item.schedule}</RoomSchedule>
+                <Row style={{ justifyContent: "space-between" }}>
+                  <View>
+                    <RoomSchedule>{item.schedule}</RoomSchedule>
+                    <Text style={{ marginTop: 5 }}>10:30h</Text>
+                  </View>
+
+                  <RoomCapacity>{`${item.capacity}\nvagas`}</RoomCapacity>
+                </Row>
               </RoomItem>
             )}
           />
@@ -101,7 +127,8 @@ function SchoolPage({ navigation, isFocused }) {
 }
 
 SchoolPage.navigationOptions = {
-  title: "Instituição de Ensino"
+  // title: "Instituição de Ensino",
+  headerTransparent: true
 };
 
 export default withNavigationFocus(SchoolPage);
