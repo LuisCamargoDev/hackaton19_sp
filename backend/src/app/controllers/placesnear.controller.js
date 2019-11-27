@@ -12,16 +12,19 @@ class PlacesNearbyController {
     }
 
     const coach = await coachService.findById(coachid);
-    
+
     if (!coach) {
       return res.status(401).json({
         error: 'Coach not found'
       })
     }
 
-    const coachAddress = await viacepService(coach.cep);
+    let coachAddress = await viacepService(coach.cep);
+    const { localidade } = JSON.parse(coachAddress);
 
-    return res.json(coachAddress);
+    
+
+    return res.json();
   }
 }
 

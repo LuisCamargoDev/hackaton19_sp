@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('request-promise-native');
 
 const URL_VIACEP = cep => `https://viacep.com.br/ws/${cep}/json/`
 
