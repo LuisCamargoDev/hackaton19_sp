@@ -1,9 +1,11 @@
 const schoolModel = require("../db/models/School");
+const jwt = require("jsonwebtoken");
+require("dotenv/config");
 
 class schoolServices {
-  list() {
+  list(obj) {
     try {
-      return schoolModel.list();
+      return schoolModel.list(obj);
     } catch (ex) {
       throw ex;
     }
@@ -36,6 +38,14 @@ class schoolServices {
   delete(id) {
     try {
       return schoolModel.del(id);
+    } catch (ex) {
+      throw ex;
+    }
+  }
+
+  session(login, password) {
+    try {
+      return schoolModel.session(login, password, "school");
     } catch (ex) {
       throw ex;
     }

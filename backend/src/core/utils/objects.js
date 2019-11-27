@@ -8,4 +8,17 @@ const depareObjects = (arg, model) =>
     return resolve(model);
   });
 
-module.exports = { depareObjects };
+const pipe = (...funcoes) => valorInicial =>
+  funcoes.reduce((valor, funcao) => funcao(valor), valorInicial);
+
+function parseJwt(token) {
+  return pipe([
+    token.split(".")[1],
+    base64Url => base64Url.replace(/-/g, "+").replace(/_/g, "/"),
+    base64 => new Buffer(base64, "base64"),
+    buff => buff.toString("ascii"),
+    payloadinit => JSON.parse(payloadinit)
+  ]);
+}
+
+module.exports = { parseJwt, depareObjects };

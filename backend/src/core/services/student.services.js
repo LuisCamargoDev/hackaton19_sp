@@ -40,6 +40,14 @@ class studentServices {
       throw ex;
     }
   }
+
+  session(login, password) {
+    try {
+      return studentModel.session(login, password, "student");
+    } catch (ex) {
+      throw ex;
+    }
+  }
 }
 
 module.exports = new studentServices();
