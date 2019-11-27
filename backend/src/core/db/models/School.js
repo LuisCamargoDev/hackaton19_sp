@@ -51,7 +51,10 @@ const schoolSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    latlong: String,
+    address_latlong: {
+      type: String,
+      required: true,
+    },
     courses: [courseSchema],    
 });
 

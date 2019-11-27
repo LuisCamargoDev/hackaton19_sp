@@ -1,12 +1,31 @@
 const schoolService = require("../../core/services/school.services");
 const viacepService = require("../services/viacep");
+const gmaps = require("../services/gmaps");
 
 class schoolController {
   async insert({ body, header }, res) {
     const viacepResult = await viacepService(body.address_postalcode);
-    const { localidade } = JSON.parse(viacepResult);
+    const { localidade, logradouro } = JSON.parse(viacepResult);
 
     body.address_city = localidade;
+
+    const result = await gmaps(encodeURIComponent(`${logradouro},${localidade},${body.address_number}`));
+    const { results } = result;
+    console.error(result);
+
+    if (!results.length) {
+      return res.status(500).json({
+        error: 'erro to get a geolocation',
+      });
+    }
+
+    const { geometry: { location } } = results;
+
+    console.log(location);
+    return res.json();
+    const { lat, lng } = location;
+
+    body.address_latlong = `${lat},${lng}`;
 
     return schoolService
       .insert(body)
