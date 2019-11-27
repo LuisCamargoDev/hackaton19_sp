@@ -2,6 +2,7 @@ const School = require("../../core/db/models/School");
 
 class TeachCourses {
   async insert({ body, params, headers }, res) {
+
     const { courseId } = params;
     const { coachid } = headers;
 

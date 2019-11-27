@@ -12,10 +12,7 @@ const courseSchema = mongoose.Schema({
   period: String,
   startDate: Date,
   finishDate: Date,
-  limitStudents: {
-    type: Number,
-    required: true,
-  },
+  limitStudents: String,
   coach: {  
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Coach'

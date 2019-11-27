@@ -11,7 +11,8 @@ class schoolController {
 
     const result = await gmaps(encodeURIComponent(`${logradouro},${localidade},${body.address_number}`));
     const { results } = result;
-    console.error(result);
+    
+    console.log(results);
 
     if (!results.length) {
       return res.status(500).json({
@@ -33,9 +34,10 @@ class schoolController {
       });
   }
 
-  show({ query }, res) {
+  show({ params }, res) {
+    const { id } = params;
     schoolService
-    .findById(query.id)
+    .findById(id)
     .then(resul => res.json(resul.courses))
     .catch(_ => res.sendStatus(500).json({error: "school not found"}));
   }
