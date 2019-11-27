@@ -6,15 +6,20 @@ class TeachCourses {
     const { courseId } = params;
     const { coachid } = headers;
 
+
     const school = await School.findOne({
       'courses._id': courseId,
     });
+
+    console.log(school);
+
 
     if (!school) {
       return res.status(401).json({
         error: 'Course not found',
       })
     }
+  
 
     const courseIndex = school.courses.findIndex(course => course._id == courseId);
     const course = school.courses[courseIndex];
