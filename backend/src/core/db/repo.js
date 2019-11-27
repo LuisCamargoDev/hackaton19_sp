@@ -15,7 +15,6 @@ class repo {
   findById(id) {
     return db
       .execute(this.model.findById({ _id: id }))
-      .then(res => res[0])
       .catch(err => {
         throw err;
       });

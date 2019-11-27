@@ -1,9 +1,9 @@
 const router = require("express").Router();
 
-const schoolMiddleware = require('../middlewares/validations/school/insert');
+const schoolInsertMiddleware = require('../middlewares/validations/school/insert');
 
 const schoolController = require("../controllers/school.controller");
 
-router.post("/", schoolMiddleware, schoolController.insert);
+router.post("/", schoolInsertMiddleware, schoolController.insert);
 
 module.exports = router;

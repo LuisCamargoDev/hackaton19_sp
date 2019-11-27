@@ -1,4 +1,5 @@
 const schoolService = require("../../core/services/school.services");
+
 class schoolController {
   insert({ body, header }, res) {
     return schoolService
