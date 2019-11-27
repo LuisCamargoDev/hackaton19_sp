@@ -13,26 +13,38 @@ export const SchoolHeader = styled.View`
 
 export const SchoolName = styled.Text`
   font-size: 18px;
+  font-weight: bold;
 `;
 
 export const SchoolAddress = styled.Text`
   font-size: 16px;
 `;
 
-export const Rooms = styled(FlatList)``;
+export const Rooms = styled(FlatList)`
+  margin: 20px 0 0;
+`;
 
 export const RoomItem = styled.TouchableOpacity`
   border-radius: 4px;
-  margin: 5px 10px 0px;
-  background-color: #c1c1c1;
+  margin: 10px 10px 0px;
+  /* background-color: #c1c1c1; */
   padding: 10px 20px;
-  border-left-color: ${props => (props.available ? "green" : "red")};
   border-left-width: 5px;
+  border-width: 1;
+  border-color: #c1c1c1;
+  /* border-left-color: ${props => (props.available ? "green" : "red")}; */
 `;
 
-export const RoomCapacity = styled.Text``;
+export const RoomCapacity = styled.Text`
+  margin-top: 5px;
+  font-size: 20px;
+  text-align: center;
+`;
 
-export const RoomSchedule = styled.Text``;
+export const RoomSchedule = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+`;
 
 export const Row = styled.View`
   flex-direction: row;
@@ -42,3 +54,9 @@ export const Row = styled.View`
 export const Icon = styled(Ionicons)`
   margin-right: 10px;
 `;
+
+export const RoomsHeader = styled.View`
+  padding: 0 0 0 10px;
+`;
+
+export const RoomsTitle = styled.Text``;
