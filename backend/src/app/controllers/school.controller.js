@@ -12,8 +12,6 @@ class schoolController {
     const result = await gmaps(encodeURIComponent(`${logradouro},${localidade},${body.address_number}`));
     const { results } = result;
     
-    console.log(results);
-
     if (!results.length) {
       return res.status(500).json({
         error: 'erro to get a geolocation',
