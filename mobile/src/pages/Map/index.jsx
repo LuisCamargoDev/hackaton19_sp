@@ -66,7 +66,7 @@ function MapPage({ navigation }) {
 
   return (
     <Container>
-      {!errorMessage && !location && <ActivityIndicator />}
+      {!errorMessage && !location && <ActivityIndicator size="large" />}
 
       {errorMessage && <Text>{errorMessage}</Text>}
 
@@ -86,7 +86,9 @@ function MapPage({ navigation }) {
               key={school.id}
               coordinate={school.coords}
               title={school.name}
-              onCalloutPress={() => navigation.navigate("SchoolPage")}
+              onCalloutPress={() =>
+                navigation.navigate("SchoolPage", { schoolId: school.id })
+              }
             />
           ))}
         </Map>
