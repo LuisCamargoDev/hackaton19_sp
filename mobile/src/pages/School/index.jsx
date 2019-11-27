@@ -61,7 +61,7 @@ function SchoolPage({ navigation }) {
           renderItem={({ item }) => (
             <RoomItem
               onPress={() => navigation.navigate("CoursePage", { class: item })}
-              disabled={!item.available}
+              // disabled={!item.available}
               available={item.available}
             >
               <Row style={{ justifyContent: "space-between" }}>
