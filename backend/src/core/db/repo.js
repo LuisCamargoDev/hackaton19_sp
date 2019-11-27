@@ -6,8 +6,8 @@ class repo {
     this.model = model;
   }
 
-  list() {
-    return db.execute(this.model.find({})).catch(err => {
+  list(obj = {}) {
+    return db.execute(this.model.find(obj)).catch(err => {
       throw err;
     });
   }

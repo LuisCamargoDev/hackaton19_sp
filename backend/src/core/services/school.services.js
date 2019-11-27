@@ -1,9 +1,9 @@
 const schoolModel = require("../db/models/School");
 
 class schoolServices {
-  list() {
+  list(obj) {
     try {
-      return schoolModel.list();
+      return schoolModel.list(obj);
     } catch (ex) {
       throw ex;
     }

@@ -1,9 +1,9 @@
 const Coach = require("../db/models/Coach");
 
 class CoachService {
-  list() {
+  list(obj) {
     try {
-      return Coach.list();
+      return Coach.list(obj);
     } catch (ex) {
       throw ex;
     }
