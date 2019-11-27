@@ -14,8 +14,23 @@ class schoolController {
   show({ query }, res) {
     schoolService
     .findById(query.id)
-    .then(resul => res.json(result.courses))
+    .then(resul => res.json(resul.courses))
     .catch(_ => res.sendStatus(500).json({error: "school not found"}));
+  }
+
+  update({ query, body }, res) {
+    // schoolService
+    // .findById(query.id)
+    // .then(school => {
+    //     const index = school.courses.findIndex(x => x._id == body._id);
+
+    //     delete body._id;
+
+    //     school.courses[index] = body;
+    // })
+    // .catch(err => {
+    //   return res.status(500);
+    // })
   }
 }
 
