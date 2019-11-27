@@ -8,6 +8,8 @@ const courseSchema = mongoose.Schema({
     type: Date,
     required: true,
   },
+  room: String,
+  period: String,
   startDate: Date,
   finishDate: Date,
   limitStudents: {
