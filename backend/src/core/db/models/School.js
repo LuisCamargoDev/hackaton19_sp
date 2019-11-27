@@ -5,30 +5,41 @@ const repo = require('../repo');
 const schoolSchema = new mongoose.Schema({
     login: {
       type: String,
-      require:true,
+      required:true,
     },
     password: {
       type: String,
-      require: true,
+      required: true,
     },
-    name: String,
-    endereco: String,
+    name: {
+      type: String,
+      required: true,
+    },
+    address_postalcode: {
+      type: String,
+      required: true,
+    },
+    address_number: {
+      type: String,
+      required: true,
+    },
+    latlong: String,
     cursos: [{
       name: String,
       description: String,
       room: String,
       limitSubscriptionDate: {
         type: Date,
-        require: true,
+        required: true,
       },
       startDate: {
         type: Date,
-        require: true,
+        required: true,
       },
       finishDate: Date,
       limitStudents: {
         type: Number,
-        require: true,
+        required: true,
       },
       coach: {  
         type: mongoose.Schema.Types.ObjectId,
