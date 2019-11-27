@@ -19,6 +19,7 @@ class AppController {
     this.app.use("/coach", routes.coachRoutes);
     this.app.use("/student", routes.studentRoutes);
     this.app.use("/placesnear", routes.placesnearRoutes);
+    this.app.use("/teachcourse", routes.teachcourse);
   }
 }
 

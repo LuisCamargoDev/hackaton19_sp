@@ -6,6 +6,5 @@ const schoolController = require("../controllers/school.controller");
 
 router.post("/", schoolInsertMiddleware, schoolController.insert);
 router.get("/", schoolController.show);
-router.put("/", schoolController.update);
 
 module.exports = router;
