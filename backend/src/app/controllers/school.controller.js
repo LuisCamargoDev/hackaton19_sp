@@ -19,10 +19,7 @@ class schoolController {
       });
     }
 
-    const { geometry: { location } } = results;
-
-    console.log(location);
-    return res.json();
+    const { geometry: { location } } = results[0];
     const { lat, lng } = location;
 
     body.address_latlong = `${lat},${lng}`;
