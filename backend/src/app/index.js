@@ -15,7 +15,9 @@ class AppController {
   }
 
   routes() {
-    this.app.use("school", routes.schoolRoutes);
+    this.app.use("/school", routes.schoolRoutes);
+    this.app.use("/couch", routes.coachRoutes);
+    this.app.use("/student", routes.studentRoutes);
   }
 }
 

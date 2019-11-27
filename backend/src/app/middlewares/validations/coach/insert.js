@@ -1,6 +1,6 @@
 const yup = require('yup');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
   const schema = yup.object().shape({
     name: yup.string().required(),
     cep: yup.string().required(),
