@@ -13,9 +13,13 @@ const MainStack = createStackNavigator({
   CoursePage
 });
 
+const MyCoursesStack = createStackNavigator({
+  MyCoursesPage
+})
+
 const TabNavigator = createBottomTabNavigator({
   MainStack,
-  MyCoursesPage
+  MyCoursesStack
 });
 
 export default createAppContainer(TabNavigator);
