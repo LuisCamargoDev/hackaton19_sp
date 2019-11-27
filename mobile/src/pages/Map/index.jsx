@@ -83,7 +83,7 @@ function MapPage({ navigation }) {
               coordinate={school.coords}
               title={school.name}
               onCalloutPress={() =>
-                navigation.navigate("SchoolPage", { schoolId: school._id })
+                navigation.navigate("SchoolPage", { school })
               }
             />
           ))}
