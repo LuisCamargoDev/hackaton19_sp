@@ -11,16 +11,12 @@ class TeachCourses {
       'courses._id': courseId,
     });
 
-    console.log(school);
-
-
     if (!school) {
       return res.status(401).json({
         error: 'Course not found',
       })
     }
   
-
     const courseIndex = school.courses.findIndex(course => course._id == courseId);
     const course = school.courses[courseIndex];
 
@@ -30,6 +26,21 @@ class TeachCourses {
     await school.save();
 
     return res.json(school);
+  }
+
+  async index({ headers }, res) {
+    const { coachid } = headers;
+
+    const school = await School.list({
+      'courses.coach': coachid,
+    });
+
+    const schoolFiltered = school.map(schoo => {
+      schoo.courses = schoo.courses.filter(course => course.coach == coachid);
+      return schoo;
+    });
+
+    return res.json(schoolFiltered);
   }
 }
 
