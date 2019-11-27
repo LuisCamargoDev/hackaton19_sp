@@ -1,5 +1,5 @@
 const coachService = require("../../core/services/coach.services");
-const viacepService = require("../services/viacep");
+const schoolService = require("../../core/services/school.services");
 
 class PlacesNearbyController {
   async index({ headers }, res) {
@@ -19,12 +19,11 @@ class PlacesNearbyController {
       })
     }
 
-    let coachAddress = await viacepService(coach.cep);
-    const { localidade } = JSON.parse(coachAddress);
+    const schools = await schoolService.list({
+      address_city: coach.address_city,
+    })
 
-    
-
-    return res.json();
+    return res.json(schools);
   }
 }
 
