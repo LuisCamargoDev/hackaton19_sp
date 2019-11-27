@@ -27,6 +27,21 @@ class TeachCourses {
 
     return res.json(school);
   }
+
+  async index({ headers }, res) {
+    const { coachid } = headers;
+
+    const school = await School.list({
+      'courses.coach': coachid,
+    });
+
+    const schoolFiltered = school.map(schoo => {
+      schoo.courses = schoo.courses.filter(course => course.coach == coachid);
+      return schoo;
+    });
+
+    return res.json(schoolFiltered);
+  }
 }
 
 module.exports = new TeachCourses();
