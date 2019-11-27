@@ -1,6 +1,28 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
 const repo = require('../repo');
+
+const courseSchema = mongoose.Schema({
+  name: String,
+  description: String,
+  limitSubscriptionDate: {
+    type: Date,
+    required: true,
+  },
+  startDate: Date,
+  finishDate: Date,
+  limitStudents: {
+    type: Number,
+    required: true,
+  },
+  coach: {  
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Coach'
+  },
+  students: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Student'
+  }]
+});
 
 const schoolSchema = new mongoose.Schema({
     login: {
@@ -24,33 +46,9 @@ const schoolSchema = new mongoose.Schema({
       required: true,
     },
     latlong: String,
-    cursos: [{
-      name: String,
-      description: String,
-      room: String,
-      limitSubscriptionDate: {
-        type: Date,
-        required: true,
-      },
-      startDate: {
-        type: Date,
-        required: true,
-      },
-      finishDate: Date,
-      limitStudents: {
-        type: Number,
-        required: true,
-      },
-      coach: {  
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Coach'
-      },
-      students: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student'
-      }]
-    }],    
+    courses: [courseSchema],    
 });
+
 
 const model = mongoose.model('School', schoolSchema);
 
