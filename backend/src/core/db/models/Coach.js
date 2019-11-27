@@ -16,7 +16,14 @@ const coachSchema = new Schema({
     type: String,
     require: true,
   },
-  cep: String,
+  address_postalcode: {
+    type: String,
+    required: true,
+  },
+  address_city: {
+    type: String,
+    required: true,
+  }
 });
 
 const model = mongoose.model('Coach', coachSchema);

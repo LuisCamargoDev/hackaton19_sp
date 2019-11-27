@@ -43,6 +43,10 @@ const schoolSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
+    address_city: {
+      type: String,
+      required: true,
+    },
     address_number: {
       type: String,
       required: true,

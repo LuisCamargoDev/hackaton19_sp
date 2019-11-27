@@ -3,7 +3,7 @@ const yup = require('yup');
 module.exports = async (req, res, next) => {
   const schema = yup.object().shape({
     name: yup.string().required(),
-    cep: yup.string().required(),
+    address_postalcode: yup.string().required(),
     login: yup.string().required(),
     password: yup.string().min(3).required(),
   });
