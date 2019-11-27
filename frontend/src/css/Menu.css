@@ -1,0 +1,79 @@
+.MenuHome{
+  padding-top: 2vh;
+  padding-right: 10px;
+  background-color: white;  
+  -webkit-box-shadow: 0px 28px 34px -14px rgba(150,150,150,1);
+-moz-box-shadow: 0px 28px 34px -14px rgba(150,150,150,1);
+box-shadow: 0px 28px 34px -14px rgba(150,150,150,1);
+  
+}
+.MenuHome .title{
+  margin-left: -2vh;
+  font-size: 2em;
+  color: #239111;
+  font-weight: bold;
+  text-align: center;
+}
+ .title_m{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: -2vh;
+  font-size: 2em;
+  color: #239111;  
+  font-weight: bold;
+  text-align: center;
+}
+.profile{
+  align-content: center;
+}
+.logoProfile{
+  margin-top: -10px;
+  padding-bottom: 10px;
+  width: 50px;
+  height: 60px;
+  margin-left: 1vh;
+}
+.valueProfile{
+  color: #58AEEE;
+  font-weight: bold;
+}
+
+
+.Profile{
+  padding-top: 2vh;
+}
+
+.link_profile{
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  color: #004C84;
+}
+
+.body_profile{
+  font-size: 1.9em;
+  font-weight: bold;
+  padding-top: 13vh;
+}
+
+.email_profile{
+  color: #004C84;
+}
+
+.phone_profile{
+  font-size: 0.8em;
+}
+
+.logoProfile_profile{
+  width: 20vh;
+}
+
+.Info{
+  color: #004C84;
+  text-align: left;
+  padding-top: 8vh;
+}
+
+.space-rigth{
+  margin-right: 20px;
+}
