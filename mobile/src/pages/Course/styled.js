@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { Platform } from "react-native";
+import { Platform, ScrollView } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
 
 export const Container = styled.KeyboardAvoidingView.attrs({
@@ -12,13 +12,13 @@ export const Container = styled.KeyboardAvoidingView.attrs({
   padding: 0 30px;
 `;
 
-export const Form = styled.View`
+export const Form = styled(ScrollView)`
   align-self: stretch;
-  margin-top: 40px;
+  margin: 40px 0;
 
   background: #eee;
   border-radius: 4px;
-  padding: 15px;
+  padding: 15px 0 20px;
 `;
 
 export const FormInput = styled.TextInput`
@@ -31,7 +31,7 @@ export const Button = styled(RectButton)`
   border-radius: 4px;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
+  margin: 15px 0 40px;
   background-color: #7159c1;  
 `;
 
