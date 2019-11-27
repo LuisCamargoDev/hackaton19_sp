@@ -4,6 +4,10 @@ let instance = null;
 require("dotenv/config");
 
 class db {
+  constructor() {
+    this.closeConnection(); // prevent connection
+    this.openConnection();
+  }
   openConnection() {
     return mongoose
       .connect(process.env.MONGO_URL, options)
@@ -21,16 +25,17 @@ class db {
   }
 
   execute(action) {
-    return this.openConnection()
-      .then(() => action)
-      .then(result => {
-        this.closeConnection();
-        return result;
-      })
-      .catch(err => {
-        console.log(err);
-        throw err;
-      });
+    return action;
+    // return this.openConnection()
+    //   .then(() => action)
+    //   .then(result => {
+    //     this.closeConnection();
+    //     return result;
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //     throw err;
+    //   });
   }
 }
 
